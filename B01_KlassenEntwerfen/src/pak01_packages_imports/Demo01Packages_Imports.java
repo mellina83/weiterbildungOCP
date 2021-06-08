@@ -1,13 +1,10 @@
 package pak01_packages_imports;
 
-import pak01_packages_imports.subpak1.*;
-import pak01_packages_imports.subpak2.*;
-import pak01_packages_imports.subpak1.subsub.*;
-import pak01_packages_imports.subpak1.ClassA;
+//import pak01_packages_imports.subpak1.*;
+//import pak01_packages_imports.subpak2.*;
 
 import static pak01_packages_imports.subpak1.ClassA.goA;
 import static pak01_packages_imports.subpak1.ClassA.text;
-
 
 public class Demo01Packages_Imports {
 	public static void main(String[] args) {
@@ -19,16 +16,7 @@ public class Demo01Packages_Imports {
 		
 		goA();
 		System.out.println(text);		
-		System.out.println(ClassA.text);
-		
-// Mittels nicht-static Import nur moeglich, wenn:
-		//import pak01_packages_imports.subpak1.ClassA;
-		//KEIN " import pak01_packages_imports.subpak1.* " moeglich!
-		//Ansprechen mit ClassA.goA();
-
-// Wenn beim static Import am Ende der Member entfernt wird :"... subpak1.ClassA;:
-		//Nur mittels ClassA.goA() moeglich.
-
+//		System.out.println(ClassA.text);
 		
 	}
 }
