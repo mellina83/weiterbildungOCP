@@ -1,4 +1,4 @@
-package aufgabe_MeineLoesung;
+package ml.mDuerbeck;
 
 import java.util.Scanner;
 
