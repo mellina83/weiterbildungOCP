@@ -1,0 +1,13 @@
+OCP EXAM GUIDE PROGRAMMER II 
+
+Wiederholung
+Using Assertions Appropriately
+SEITE 176 - 179
+
+
+Vorbereitung
+AutoCloseable Resources with a try-with-resources Statement
+Seite 185 - 192.
+AutoCloseable and Closeable
+A Complex try-with-resources Example
+Suppressed Exceptions
