@@ -1,0 +1,19 @@
+In den beiden Packages �checked� und �unchecked� finden sie jeweils
+eine Konto Klasse und eine TestKonto Klasse vor.
+
+Als Aufgabe, soll die Methode �geldAbheben()� der Klasse Konto so
+umgeschrieben werden, dass eine Exception an die aufrufende Stelle
+geleitet wird. Mit der vorliegenden TestKonto klasse Testen Sie ihre
+Implementierung der Exceptions.
+
+Erl�utern Sie, welche Art der Exception in diesem Bankkonto Beispiel
+besser ist und warum.
+
+
+Meine Antwort:
+Die Checked Exception faende ich besser. Damit der Programmierer, der meine Klasse in seiner Main-Methode nutzt, beim Aufrufen
+der Konto-Klasse weiss, dass meine Methode eine Exception werfen kann (Es werden nur throws Klauseln von Checked Exceptions angezeigt).
+Da er Bescheid weiss, kann er einen Try-Catch Block verwenden, damit das Programm nach dem Auswerfen der Exception
+weiterlaeuft und nicht abstuerzt.
+Denn mit der Meldung "Geld hat nicht ausgereicht, es wurde Ihnen nur das vorhandene Geld ausgezahlt." ist die Abhebe-Situation erledigt
+und der naechste Kunde darf Geld abheben.
