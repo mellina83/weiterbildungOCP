@@ -1,5 +1,8 @@
 package aufgabe_MeineLoesung;
 
+//Ich dachte, es haette mit enums gemacht werden muessen.
+//Beste Loesung s. Hanif Soleiman
+
 import java.util.Scanner;
 
 public class Rot13VerschluesselungTest {
