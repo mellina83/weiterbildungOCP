@@ -1,6 +1,7 @@
 package aufgabe_MeineLoesung;
 
 //Ich dachte, es haette mit enums gemacht werden muessen.
+//Feedback war gut vom Dozenten, die Parameter bei den enums haette ich mir aber sparen koennen, wegen getName Methode
 //Beste Loesung s. Hanif Soleiman
 
 import java.util.Scanner;
