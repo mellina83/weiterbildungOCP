@@ -29,7 +29,7 @@ public class Konto {
 	 * 
 	 * Es geht hier um eine "Unchecked" Exception
  	 */
-	public void geldAbheben(double saldo)  {
+	public void geldAbheben(double saldo) throws NegativeSaldoRuntimeException  {
 		
 		if (this.getSaldo() < saldo) {
 			double tempSaldo = this.getSaldo();
