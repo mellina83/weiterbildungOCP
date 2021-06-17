@@ -6,6 +6,7 @@ public class StatischeInnereKlassenUndInterfaces {
 		
 		//Objekterstellung in einer anderen Main
 		Lampe.Gluehbirne birne1 = new Lampe.Gluehbirne();
+		
 	}
 }
 
@@ -28,6 +29,9 @@ class Lampe {
 	}
 	
 	static class Gluehbirne {
+		
+		String name;
+		static String name2;
 		void ausgabe() {
 			//Die innere Klasse kann von der aeusseren Klasse nur statische Member abrufen
 			System.out.println(sVonLampe);
@@ -49,6 +53,10 @@ class Lampe {
 		//In beliebiger Kombi untereinander moeglich
 		Lampe.Gluehbirne birne2 = new Lampe.Gluehbirne();
 		Gluehbirne birne3 = new Gluehbirne();
+		
+		//Oder natuerlich an Instanz der aeusseren Klasse geheftet (nur wenn Aeussere Klasse nicht abstract):
+		Lampe lampe1 = new Lampe();
+		Gluehbirne birne4 = new Gluehbirne();
 	}
 	
 	

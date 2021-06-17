@@ -11,7 +11,7 @@ public class MitgliedsOderElementklassen {
 		Haus refHaus1 = new Haus();
 		Raum refRaum1 = refHaus1.new Raum(); //Raum muss aber importiert werden
 		Raum refRaum2 = new Haus().new Raum();
-//		new Raum();
+		new Haus().new Raum().ok();
 	}
 }
 
@@ -33,6 +33,7 @@ class Haus {
 	
 	class Raum {
 		String s = "Raum";
+		final static String a ="Bla";
 		
 		//Nur non-static Member erlaubt
 		private String bewohner = "WiederIch";
@@ -71,3 +72,5 @@ class Haus {
 	}
 	
 }
+
+
