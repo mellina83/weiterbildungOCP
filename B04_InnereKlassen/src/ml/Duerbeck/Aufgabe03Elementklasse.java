@@ -1,5 +1,7 @@
 package ml.Duerbeck;
 
+//Maxanzahl vergessen, fuer Loesung siehe die von Hanif Soleiman
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +52,7 @@ class CDListe {
 		}
 	}
 	
-	class CD {
+	private class CD {
 		
 		String cdTitel;
 		String kuenstler;

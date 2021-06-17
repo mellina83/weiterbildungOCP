@@ -1,5 +1,8 @@
 package ml.Duerbeck;
 
+//Habe ein Attribut fuer Obstname genommen. Besser waere getClass.getSimpleName in einer default Methode des Interfaces.
+//Siehe Loesung von Hanif Soleiman
+
 public class Aufgabe04StatischeInnereKlasse {
 
 	public static void main(String[] args) {
