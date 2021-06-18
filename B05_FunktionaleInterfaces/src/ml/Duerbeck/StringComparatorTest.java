@@ -1,5 +1,7 @@
 package ml.Duerbeck;
 
+//Meins ist richtig, aber in der Anweisung waere Integer.compare weniger Schreibarbeit (s. Loesung von Michael Auerbach)
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -45,33 +47,32 @@ public class StringComparatorTest {
 		
 		System.out.println();
 		
+		
 		// Mit anonymer innerer Klasse
 		System.out.println("Mit anonymer innerer Klasse:");
 		sortierenMitAnonymerKlasse(stringliste2);
 		
 		for (String string : stringliste2) {
 			System.out.println(string);		}
-
 	}
 
 	private static void sortierenMitAnonymerKlasse(List<String> sliste) {
-		Comparator comparatorMitAnonym = new Comparator() {
+		Comparator<String> comparatorMitAnonym = new Comparator<String>() {
 			
 			@Override
-			public int compare(Object o1, Object o2) {
-				String s1 = (String)o1;
-				String s2 = (String)o2;
-			
+			public int compare(String s1, String s2) {
+
 				if (s1.length() < s2.length()) {
 					return -1;
 				} else if (s1.length() == s2.length()) {
 					return 0;
 				} else {
 					return 1;
+				}
 			}
 		};
-	};
-}
+		sliste.sort(comparatorMitAnonym);
+		}
 }
 
 
