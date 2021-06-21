@@ -1,0 +1,8 @@
+E - Elements // Wird sehr häufig im Collections Framework verwendet.
+K - Key
+N - Number
+T - Type
+V - Value
+R - Return
+
+S,U,V usw. 2nd, 3rd, 4th types
