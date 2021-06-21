@@ -1,4 +1,4 @@
-package ml.duerbeck;
+package ml.duerbeck.versuch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +17,10 @@ public class FahrzeugeWaschenMain {
 		Lkw lkw2 = new Lkw("B-EA-0104", true);
 		
 		System.out.println("Sauberkeitscheck:");
-		pkw1.checkObDreckig();
-		pkw2.checkObDreckig();
-		lkw1.checkObDreckig();
-		lkw2.checkObDreckig();
+		waschstrassePkw.checkObDreckig(pkw1);
+		waschstrassePkw.checkObDreckig(pkw2);
+		waschstrasseLkw.checkObDreckig(lkw1);
+		waschstrasseLkw.checkObDreckig(lkw2);
 		
 		System.out.println("Fahrzeuge aktuell im Parkhaus");
 		parkhausWuppertal.anzeigenGeparkteFahrzeuge();
@@ -36,15 +36,40 @@ public class FahrzeugeWaschenMain {
 class Waschstrasse<T extends Fahrzeug> {
 	public List<T> dreckigeFahrzeuge;
 	
+	public Parkhaus<T> parkhaus;
+	
 	public Waschstrasse() {
 		dreckigeFahrzeuge = new ArrayList<>();
+		parkhaus = new Parkhaus<T>();
+	}
+	
+	void checkObDreckig(T fahrzeug) {
+		if (fahrzeug.isDreckig()) {
+			System.out.println(fahrzeug + " ist dreckig, muss also gewaschen werden.");
+			this.einfahren(fahrzeug);
+		} else if (!fahrzeug.isDreckig()) {
+			System.out.println(fahrzeug + " ist sauber. Daher kann es schon ins Parkhaus gefahren werden.");
+			parkhaus.einfahren(fahrzeug);
+		}
+	}
+	
+	void einfahren (T fahrzeug) {
+		dreckigeFahrzeuge.add(fahrzeug);
+		System.out.println(fahrzeug + " ist in die Waschstrasse reingefahren.");
 	}
 	
 	void waschen() {
 		for (int i = 0; dreckigeFahrzeuge.size() < i; i++) {
 			this.dreckigeFahrzeuge.get(i).setDreckig(false);
 			System.out.println(dreckigeFahrzeuge.get(i) + " ist jetzt sauber");
+			this.ausfahren(dreckigeFahrzeuge.get(i), i);
+			parkhaus.einfahren(dreckigeFahrzeuge.get(i));
 		}
+	}
+	
+	void ausfahren (T fahrzeug, int index) {
+		dreckigeFahrzeuge.remove(index);
+		System.out.println(fahrzeug + " ist aus der Waschstrasse rausgefahren.");
 	}
 	
 	void anzeigenFahrzeugeInWaschstrasse() {
@@ -62,6 +87,11 @@ class Parkhaus <T extends Fahrzeug> {
 		geparkteFahrzeuge = new ArrayList<>();
 	}
 	
+	void einfahren(T fahrzeug) {
+		geparkteFahrzeuge.add(fahrzeug);
+		System.out.println(fahrzeug + " wurde im Parkhaus geparkt");
+	}
+	
 	void anzeigenGeparkteFahrzeuge() {
 		System.out.println("Liste geparkter Fahrzeuge:");
 		for (int i = 0; geparkteFahrzeuge.size() < i; i++) {
@@ -75,37 +105,10 @@ abstract class Fahrzeug {
 //Interface konstant
 	private String kennzeichen;
 	private boolean dreckig;
-	public Waschstrasse<Fahrzeug> waschstrasse = new Waschstrasse<>();
-	public Parkhaus<Fahrzeug> parkhaus = new Parkhaus<>();
 		
 	public Fahrzeug(String kennzeichen, boolean dreckig) {
 		setKennzeichen(kennzeichen);
 		setDreckig(dreckig);
-	}
-	
-	public void einfahren (Waschstrasse<Fahrzeug> ws) {
-		ws.dreckigeFahrzeuge.add(this);
-		System.out.println(this + " ist in die Waschstrasse reingefahren.");
-	}
-	
-	public void einfahren (Parkhaus<Fahrzeug> ph) {
-		ph.geparkteFahrzeuge.add(this);
-		System.out.println(this + " ins Parkhaus reingefahren.");
-	}
-	
-	void ausfahren (Waschstrasse<Fahrzeug> ws, int index) {
-		ws.dreckigeFahrzeuge.remove(index);
-		System.out.println(this + " ist aus der Waschstrasse rausgefahren.");
-	}
-	
-	void checkObDreckig() {
-		if (this.isDreckig()) {
-			System.out.println(this + " ist dreckig, muss also gewaschen werden.");
-			this.einfahren(waschstrasse);
-		} else if (!this.isDreckig()) {
-			System.out.println(this + " ist sauber. Daher kann es schon ins Parkhaus gefahren werden.");
-			this.einfahren(parkhaus);
-		}
 	}
 
 	public String getKennzeichen() {
@@ -146,4 +149,3 @@ class Lkw extends Fahrzeug {
 	}
 	
 }
-
