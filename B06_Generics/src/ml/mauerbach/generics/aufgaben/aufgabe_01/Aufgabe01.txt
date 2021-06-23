@@ -1,0 +1,32 @@
+Realisieren Sie eine Klassen Bibliothek mit Generics:
+
+- PKWs sowie LKWs sollen als Klasse umgesetzt werden.
+  Beides sind vom Typ Fahrzeug. (Interface oder Klasse?)
+  Die Klasse PKW wie auch LKW sollen einen Zustand ('boolean' dreckig) besitzen.
+
+  LKW ist kein PKW und ein PKW ist kein LKW.
+
+
+- Realisieren Sie eine Klasse 'Waschstrasse' für die Fahrzeuge.
+
+  In einer LKW-Waschstrasse können nur LKWs gewaschen werden und
+  in einer PKW-Waschstrasse können nur PKWs gewaschen werden.
+  
+  Eine Waschstrasse beinhaltet eine Methode 'waschen' welche mit einem Generischen
+  Parameter genutzt wird. In der Methode 'waschen' werden die Fahrzeuge gewaschen
+  und der Zustand des Attributes 'dreckig' des Fahrzeuges wird auf 'false' gesetzt.
+
+  Die Reihenfolge, in welche die Fahrzeuge in die Waschstrasse reinfahren, entspricht
+  der Reihenfolge wie die Fahrzeuge wieder herauskommen.
+  
+  Sie können die Klasse um weitere Methoden erweitern, wenn Sie diese als Sinnvoll
+  erachten. Bsp. einfahren und ausfahren.
+
+- Anschließend sammeln Sie alle Fahrzeuge in einem Parkhaus. Die Klasse Parkhaus nimmt
+  LKWs und PKWs entgegen.
+  
+- Zum Testen erstellen Sie min. 4 Fahrzeuge jeder Art.
+- Wahlweise können Sie es implementieren, dass nur Fahrzeuge mit dem Zustand 
+  'dreckig == true' gewaschen werden. Saubere Fahrzeuge werden sofort ins Parkhaus
+  versetzt.
+- Beachten Sie bitte weitestgehend alle bisherigen OOP Prinzipien.

@@ -1,6 +1,7 @@
 package pak02classes.bauernhof;
 
 public abstract class AAnimal {
+	
 	private String name;
 	private int alter;
 	
