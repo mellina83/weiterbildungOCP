@@ -1,0 +1,13 @@
+Lesen im OCP Java SE 8 Programmer II Guide
+
+Wiederholungen aus dem Originalbuch zu Equals und HashCode
+Seite 334 - Overriding equals()
+Seite 339 - The equals() Contract
+
+Seite 340 - Overriding hashCode() 
+Seite 344 - The hashCode() Contract
+
+Den folgenden Abschnitt bitte die nächsten 5 Tage, bzw. am Wochenende lesen.
+Collections Overview (OCP Objective 3.2)
+Seite 346 – 395 
+

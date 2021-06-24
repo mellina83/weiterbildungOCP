@@ -20,10 +20,10 @@ public class FahrzeugeWaschenMain {
 		Lkw lkw2 = new Lkw("B-EA-0104", true);
 		
 		System.out.println("Sauberkeitscheck:");
-		waschstrassePkw.checkObDreckig(pkw1, parkhausWuppertal);
-		waschstrassePkw.checkObDreckig(pkw2, parkhausWuppertal);
-		waschstrasseLkw.checkObDreckig(lkw1, parkhausWuppertal);
-		waschstrasseLkw.checkObDreckig(lkw2, parkhausWuppertal);
+		waschstrassePkw.checkObDreckig(pkw1);
+		waschstrassePkw.checkObDreckig(pkw2);
+		waschstrasseLkw.checkObDreckig(lkw1);
+		waschstrasseLkw.checkObDreckig(lkw2);
 		
 		System.out.println("Fahrzeuge aktuell im Parkhaus");
 		parkhausWuppertal.anzeigenGeparkteFahrzeuge();
@@ -39,20 +39,20 @@ public class FahrzeugeWaschenMain {
 class Waschstrasse<T extends Fahrzeug> {
 	public List<T> dreckigeFahrzeuge;
 	public Fahrzeug fahrzeug;
-	public Parkhaus parkhaus;
+	public Parkhaus<T> parkhaus;
 	
 	public Waschstrasse(Parkhaus parkhaus) {
 		dreckigeFahrzeuge = new ArrayList<>();
 		this.parkhaus = parkhaus;
 	}
 	
-	void checkObDreckig(T fahrzeug, Parkhaus<Fahrzeug> parkhausWuppertal) {
+	void checkObDreckig(T fahrzeug) {
 		if (fahrzeug.isDreckig()) {
 			System.out.println(fahrzeug + " ist dreckig, muss also gewaschen werden.");
-			this.einfahren(fahrzeug);
+			einfahren(fahrzeug);
 		} else if (!fahrzeug.isDreckig()) {
 			System.out.println(fahrzeug + " ist sauber. Daher kann es schon ins Parkhaus gefahren werden.");
-			parkhausWuppertal.einfahren(fahrzeug);
+			parkhaus.einfahren(fahrzeug);
 		}
 	}
 	
@@ -65,8 +65,8 @@ class Waschstrasse<T extends Fahrzeug> {
 		for (int i = 0; dreckigeFahrzeuge.size() < i; i++) {
 			this.dreckigeFahrzeuge.get(i).setDreckig(false);
 			System.out.println(dreckigeFahrzeuge.get(i) + " ist jetzt sauber");
-			this.ausfahren(dreckigeFahrzeuge.get(i), i);
 			parkhausWuppertal.einfahren(dreckigeFahrzeuge.get(i));
+			this.ausfahren(dreckigeFahrzeuge.get(i), i);
 		}
 	}
 	
