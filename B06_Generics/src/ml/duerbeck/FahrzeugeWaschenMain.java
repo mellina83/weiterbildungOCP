@@ -19,33 +19,33 @@ public class FahrzeugeWaschenMain {
 		Pkw pkw2 = new Pkw("K-FO-808", false);
 		Lkw lkw2 = new Lkw("B-EA-0104", true);
 		
-		parkhausWuppertal.einfahren(pkw1);
+//		parkhausWuppertal.einfahren(pkw1);
 		
 		System.out.println("Sauberkeitscheck:");
 		waschstrassePkw.checkObDreckig(pkw1);
-	//	waschstrassePkw.checkObDreckig(pkw2);
-	//	waschstrasseLkw.checkObDreckig(lkw1);
-	//	waschstrasseLkw.checkObDreckig(lkw2);
+		waschstrassePkw.checkObDreckig(pkw2);
+		waschstrasseLkw.checkObDreckig(lkw1);
+		waschstrasseLkw.checkObDreckig(lkw2);
 		
 		System.out.println("Fahrzeuge aktuell im Parkhaus");
 		parkhausWuppertal.anzeigenGeparkteFahrzeuge();
 		
 		System.out.println("\nWaschgang:");
 		waschstrassePkw.waschen();
-	//	waschstrasseLkw.waschen();
+		waschstrasseLkw.waschen();
 		
+		System.out.println("Fahrzeuge aktuell im Parkhaus");
+		parkhausWuppertal.anzeigenGeparkteFahrzeuge();
 		
-		
-
 	}
 
 }
 
 class Waschstrasse<T extends Fahrzeug> {
 	public List<T> dreckigeFahrzeuge;
-	public Parkhaus<T> parkhaus;
+	public Parkhaus<Fahrzeug> parkhaus;
 	
-	public Waschstrasse(Parkhaus parkhaus) {
+	public Waschstrasse(Parkhaus<Fahrzeug> parkhaus) {
 		dreckigeFahrzeuge = new ArrayList<>();
 		this.parkhaus = parkhaus;
 	}
@@ -66,22 +66,12 @@ class Waschstrasse<T extends Fahrzeug> {
 	}
 	
 	void waschen() {
-		
 		for (int i = 0; i < dreckigeFahrzeuge.size(); i++) {
 			this.dreckigeFahrzeuge.get(i).setDreckig(false);
 			System.out.println(dreckigeFahrzeuge.get(i) + " ist jetzt sauber");
 			this.parkhaus.einfahren(dreckigeFahrzeuge.get(i));
 			this.ausfahren(dreckigeFahrzeuge.get(i), i);
-
 		}
-		
-//		System.out.println(dreckigeFahrzeuge.size());
-//		for (int i = 0; i < dreckigeFahrzeuge.size(); i++) {
-//			this.dreckigeFahrzeuge.get(i).setDreckig(false);
-//			System.out.println(dreckigeFahrzeuge.get(i) + " ist jetzt sauber");
-//			this.parkhaus.einfahren(dreckigeFahrzeuge.get(i));
-//			this.ausfahren(dreckigeFahrzeuge.get(i), i);
-//		}
 	}
 	
 	void ausfahren (T fahrzeug, int index) {
