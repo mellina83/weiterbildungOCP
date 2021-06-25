@@ -33,8 +33,8 @@ public class Artikel implements Comparable<Artikel>{
 
 	@Override
 	public int compareTo(Artikel o) {		
-		return this.getName().compareTo(o.getName());
-//		return this.getArtNr().compareTo(o.getArtNr());
+//		return this.getName().compareTo(o.getName());
+		return this.getArtNr().compareTo(o.getArtNr());
 	}
 	
 	

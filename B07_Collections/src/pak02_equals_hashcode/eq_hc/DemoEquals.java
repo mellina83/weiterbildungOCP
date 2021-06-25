@@ -79,7 +79,7 @@ public class DemoEquals {
 	}
 
 	/*
-	 * Equals und Hashcode sind ueberschrieben
+	 * Equals und Hashcode sind nicht ueberschrieben
 	 */
 	private static void demoHashSet02() {
 		ArtikelMitEq_HC a = new ArtikelMitEq_HC("1000", "Mutter 8x10");
