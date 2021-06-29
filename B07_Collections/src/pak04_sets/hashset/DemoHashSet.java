@@ -1,7 +1,11 @@
 package pak04_sets.hashset;
 
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * 
@@ -48,20 +52,61 @@ public class DemoHashSet {
 		demoHashSet02();
 	}
 
+
 	private static void demoHashSet02() {
+		/*
+		 * @HashSet Reihenfolge nicht vorhersagbar
+		 * 
+		 * @LinkedHashSet Einfüge Reihenfolge
+		 * 
+		 * @TreeSet Sortiert nach natürlicher Reihenfolge
+		 */
 		Set<Person> anmeldungen = new HashSet<>();
+//		Set<Person> anmeldungen = new LinkedHashSet<>();
+		
+//		Comparator<Person> compVorUndNachname = (p1,p2) ->{
+//			System.out.println("Compare : \n\t" + p1 + "\n\t" + p2);
+//			int result = p1.getNachname().compareTo(p2.getNachname());
+//			if(result==0) {
+//				result = p1.getVorname().compareTo(p2.getVorname());
+//			}	
+//			return result;
+//		};
+//		Set<Person> anmeldungen = new TreeSet<>();
+//		Set<Person> anmeldungen = new TreeSet<>(compVorUndNachname);
 		
 		anmeldungen.add(new Person("Anja", "Musterfrau"));
 		anmeldungen.add(new Person("Christina", "Schmidt"));
 		anmeldungen.add(new Person("Elena", "Heldenreich"));
+		anmeldungen.add(new Person("Nico", "Musterfrau"));
 		anmeldungen.add(new Person("Michael", "Musterfrau"));
+		anmeldungen.add(new Person("Hans", "Musterfrau"));
+		anmeldungen.add(new Person("Franziska", "Musterfrau"));
 		anmeldungen.add(new Person("Alexa", "Amazing"));
 		anmeldungen.add(new Person("Siri", "Apfel"));
 		anmeldungen.add(new Person("Cortana", "Winzigweich"));
 		anmeldungen.add(new Person("Assistent", "Mycroft"));
 		anmeldungen.add(new Person("Assistent", "Mycroft"));
 		
-		System.out.println("Anzahl Anmeldungen: " + anmeldungen.size());//9
+		System.out.println("Anzahl Anmeldungen: " + anmeldungen.size());//8
+		
+		/*
+		 * Interne Iteration
+		 */
+		anmeldungen.forEach(System.out::println);
+		
+		System.out.println("----------");
+		/*
+		 * erweiterte For-Schleife
+		 */
+//		for(Person p : anmeldungen) {
+//			System.out.println(p.getVorname());
+//		}
+		
+		/*
+		 * Iterator
+		 */
+		Iterator<Person> iter = anmeldungen.iterator();
 		
 	}
 

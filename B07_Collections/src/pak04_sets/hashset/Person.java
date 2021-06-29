@@ -1,10 +1,10 @@
 package pak04_sets.hashset;
 
-public class Person {
+public class Person implements Comparable<Person> {
 
 	private String vorname;
 	private String nachname;
-	
+
 	public Person(String vorname, String nachname) {
 		this.vorname = vorname;
 		this.nachname = nachname;
@@ -25,7 +25,7 @@ public class Person {
 	public void setNachname(String nachname) {
 		this.nachname = nachname;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Person [vorname=" + vorname + ", nachname=" + nachname + "]";
@@ -39,7 +39,7 @@ public class Person {
 		result = prime * result + ((vorname == null) ? 0 : vorname.hashCode());
 		return result;
 	}
-	
+
 //	@Override
 //	public int hashCode() {
 //		return 42;
@@ -48,6 +48,7 @@ public class Person {
 	@Override
 	public boolean equals(Object obj) {
 		System.out.println("Es wird verglichen");
+		System.out.println(obj.getClass());
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -67,6 +68,10 @@ public class Person {
 			return false;
 		return true;
 	}
-	
-	
+
+	@Override
+	public int compareTo(Person o) {
+		return this.getNachname().compareTo(o.getNachname());
+	}
+
 }
