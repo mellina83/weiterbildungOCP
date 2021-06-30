@@ -1,19 +1,23 @@
-package ml.duerbeck.a0304;
+package ml.duerbeck.a03bis05;
 
 //Klasse Browser History
 //String Array mit 5, oder ArrayList als Attribut
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public class BrowserHistory {
 	
 	//Aufgabe01
-	Deque<String> history;
+	String[] history;
 	
 	BrowserHistory() {
-		history = new ArrayDeque<>(5);
+		history = new String[5];
 	}
 
 	public static void main(String[] args) {
@@ -25,10 +29,10 @@ public class BrowserHistory {
 		 h.open("u3.com");
 		 h.open("u4.com");
 		 h.open("u5.com");
-		 System.out.println(h.getCurrent());
+//		 System.out.println(h.getCurrent());
 	//Aufgabe03	 
 		 h.open("u6.com");
-		 System.out.println( h.getCurrent() );
+//		 System.out.println( h.getCurrent() );
 		 
 	//Aufgabe04	 
 		 h.openPrevious();
@@ -36,21 +40,21 @@ public class BrowserHistory {
 		 h.openPrevious();
 		 h.openPrevious();
 		 h.openPrevious();
-		 System.out.println( h.getCurrent() );
+//		 System.out.println( h.getCurrent() );
 	//Aufgabe05	 
 	  try {
 		  h.openPrevious();
 	  } catch (RuntimeException e) {
 		  e.getMessage();
 		  }
-	  System.out.println( h.getCurrent() );
+	//  System.out.println( h.getCurrent() );
 	 
 		System.out.println("Aufgabe06");
 		h.openNext();
 		h.openNext();
 		h.openNext();
 		h.openNext();
-		System.out.println( h.getCurrent() );
+	//	System.out.println( h.getCurrent() );
 
 	}
 	
@@ -61,16 +65,19 @@ public class BrowserHistory {
 
 	//Aufgabe04 u 05
 	private void openPrevious() throws RuntimeException {
-		history.removeLast();
+		List<String> list = Arrays.asList(history);
+		Deque<String> deque = new ArrayDeque<>(list);
+		deque.removeLast();
 	}
 
 	//Aufgabe02
-	private String getCurrent() { 
-		return history.getLast();
-	}
+//	private String getCurrent() { 
+//		return history.getLast();
+//	}
 
 	private void open(String string) {
-		history.offer(string);
-	}
 
+		//history.offer(string);
+	}
 }
+
