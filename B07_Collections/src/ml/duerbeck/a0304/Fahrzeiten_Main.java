@@ -1,4 +1,4 @@
-package ml.duerbeck.fahrzeiten;
+package ml.duerbeck.a0304;
 
 import java.util.Collections;
 import java.util.TreeSet;
