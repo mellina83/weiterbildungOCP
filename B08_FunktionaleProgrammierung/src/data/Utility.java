@@ -25,6 +25,7 @@ public class Utility {
 	}
 	
 	
+
 	public static <T> void useSupplier(Supplier<T> supplier) {
 		System.out.println("Methode die einen Supplier entgegen nimmt");
 //		T t = new T();
