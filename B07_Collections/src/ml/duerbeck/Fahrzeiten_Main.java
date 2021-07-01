@@ -1,4 +1,4 @@
-package ml.duerbeck.a03bis05;
+package ml.duerbeck;
 
 import java.util.Collections;
 import java.util.TreeSet;

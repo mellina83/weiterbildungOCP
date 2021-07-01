@@ -1,4 +1,4 @@
-package ml.duerbeck.a03bis05;
+package ml.duerbeck;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -45,15 +45,20 @@ public class TreeMap_Main {
 		};
 		map.forEach(biConsumer);
 		
+		//Consumer und BiConsumer fuer je Aufsteigend und Absteigend!!
+		//Siehe Loesung von Dozent
+		
 		//Aufgabe06
 		System.out.println("\nAufgabe 6: Zerlegen der Map, alle Werte inklusive + Groesse anzeigen");
 		Map<Integer, String> submap = new TreeMap<>(map.subMap(3, true, 666, true));
 		System.out.println("3 bis 666: " + submap + " Groesse: " + submap.size());
 		Map<Integer, String> headmap = new TreeMap<>(map.headMap(234, true));
 		System.out.println("bis 234: " + headmap + " Groesse: " + headmap.size());
-		Map<Integer, String> tailmap = new TreeMap<>(map.tailMap(55, true));
-		System.out.println("von 55: " + tailmap + " Groesse: " + tailmap.size());
+		Map<Integer, String> tailmap = new TreeMap<>(map.tailMap(55));
+		System.out.println("von 55: " + tailmap + " Groesse: " + tailmap.size()); //true koennen wir uns sparen
 		
+		//BONUS: KeySet oder Value, denn Map hat keinen Iterator
+		//Siese Loesung von Dozent
 	}
 	
 	private static void fuelleMap(Map<Integer, String> paramMap) {

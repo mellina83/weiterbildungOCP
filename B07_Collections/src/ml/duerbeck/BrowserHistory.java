@@ -1,6 +1,9 @@
-package ml.duerbeck.a03bis05;
+package ml.duerbeck;
 
-//Klasse Browser History
+//Loesung funktioniert nicht komplett
+//Besser: Siehe Loesung von Dozent
+
+
 //String Array mit 5, oder ArrayList als Attribut
 
 import java.util.ArrayDeque;
