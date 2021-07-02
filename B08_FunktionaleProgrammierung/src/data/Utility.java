@@ -6,6 +6,8 @@ import java.util.Random;
 import java.util.function.Supplier;
 
 public class Utility {
+	
+	public static Supplier<String> errorMessage = () -> "ACHTUNG KEINE MELDUNG ERHALTEN"; 
 
 	public static int intAscendingCompare(int x,int y) {
 		return Integer.compare(x, y);
