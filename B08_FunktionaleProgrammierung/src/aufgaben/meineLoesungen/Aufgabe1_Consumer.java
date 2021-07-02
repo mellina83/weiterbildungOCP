@@ -1,6 +1,6 @@
 package aufgaben.meineLoesungen;
 
-//Meine Aufgabe ist voellig korrekt und wurde als Musterloesung auserkoren :)
+//Meine Aufgabe ist voellig korrekt :)
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 import function04.consumer.Demo01Consumer;
 
-public class aufgabe1_Consumer {
+public class Aufgabe1_Consumer {
 
 	public static void main(String[] args) {
 		/**
