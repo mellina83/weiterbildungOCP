@@ -1,5 +1,7 @@
 package aufgaben.meineLoesungen;
 
+//Meine Aufgabe ist voellig korrekt und wurde als Musterloesung auserkoren :)
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
