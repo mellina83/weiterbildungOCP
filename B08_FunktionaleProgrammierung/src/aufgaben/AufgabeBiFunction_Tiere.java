@@ -46,7 +46,7 @@ public class AufgabeBiFunction_Tiere {
 		
 		
 		/**
-		 * Jeweils eine BiFunction ähnlich Zeile 34-39 .... realisieren
+		 * Jeweils eine BiFunction ï¿½hnlich Zeile 34-39 .... realisieren
 		 */
 		// Bitte mit Lambda realisieren:
 		
@@ -57,7 +57,7 @@ public class AufgabeBiFunction_Tiere {
 		// Bitte die Klasse ZooBuilder realisieren/nutzen:
 		
 		
-		// Bitte die Methode create erstellen
+		// Bitte die Methode create erstellen (nutzen)
 		
 		
 		// Ref. auf eine Instanz-Methode von einem unbest. Objekt von dem bestimmten Typ

@@ -57,7 +57,7 @@ public class Aufgabe2_BiFunction_Tiere {
 		// Bitte die Klasse ZooBuilder realisieren/nutzen:
 //		ZooBuilder zoobuilder = new ZooBuilder().build(t, null)
 		
-		// Bitte die Methode create erstellen
+		// Bitte die Methode create erstellen (nutzen)
 		
 		
 		// Ref. auf eine Instanz-Methode von einem unbest. Objekt von dem bestimmten Typ

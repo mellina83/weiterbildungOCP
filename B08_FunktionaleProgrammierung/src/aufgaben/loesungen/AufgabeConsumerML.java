@@ -1,4 +1,4 @@
-package aufgaben;
+package aufgaben.loesungen;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -8,7 +8,7 @@ public class AufgabeConsumerML {
 	public static void main(String[] args) {
 
 		/**
-		 * Schreiben Sie bei den TODO´s Lambda Funktionen und Methoden Referenz
+		 * Schreiben Sie bei den TODOï¿½s Lambda Funktionen und Methoden Referenz
 		 * die die Methode putIntegers verwenden.
 		 * 
 		 * Die Funktionen sollen mit StringBuilder, ArrayList und Methoden Referenz
