@@ -17,7 +17,7 @@ public class Demo01erzeugen {
 		/**
 		 * mit Utility Klassen
 		 */
-//		myStream = with_Utils_Arrays_stream();
+		myStream = with_Utils_Arrays_stream();
 //		myStream = with_Utils_Collection_stream();
 		
 		/**
@@ -32,7 +32,7 @@ public class Demo01erzeugen {
 		
 //		myStream = Stream.of(5, 7, 84, 54, 48, 48, 48, 4, 564, 65);
 		
-		myStream = with_Stream_concat();
+//		myStream = with_Stream_concat();
 		
 		/**
 		 * Ausgabe des Streams - Terminal Operation
