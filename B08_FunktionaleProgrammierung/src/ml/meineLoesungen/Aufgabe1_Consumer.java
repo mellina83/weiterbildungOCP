@@ -1,4 +1,4 @@
-package aufgaben.meineLoesungen;
+package ml.meineLoesungen;
 
 //Meine Aufgabe ist voellig korrekt :)
 

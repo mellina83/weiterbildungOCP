@@ -1,4 +1,4 @@
-package aufgaben.meineLoesungen;
+package ml.meineLoesungen;
 
 import java.util.function.BiFunction;
 

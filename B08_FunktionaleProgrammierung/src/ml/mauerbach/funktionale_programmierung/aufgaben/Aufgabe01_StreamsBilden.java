@@ -1,13 +1,9 @@
-package aufgaben.meineLoesungen;
+package ml.mauerbach.funktionale_programmierung.aufgaben;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
-import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -22,13 +18,13 @@ import java.util.stream.Stream;
  * @A5 Gegeben ist der Code wie in der Methode A5:
  */
 
-public class AufgabeStreams_01_StreamsBilden {
+public class Aufgabe01_StreamsBilden {
 
 	public static void main(String[] args) {
-		A1();
+//		A1();
 //		A2();
 //		A3();
-//		A4();
+		A4();
 //		A5();
 	}
 
@@ -46,17 +42,7 @@ public class AufgabeStreams_01_StreamsBilden {
 			System.out.println("size = " + e.size() + ". elements = " + e);
 		}
 		// B
-		
-		
-//		Loesung
-		System.out.println("Loesung A1: ");
-		Consumer<Integer> cons = element -> System.out.print(element + " ");
-		System.out.print("size = " + list1.size() + ". elements = ");
-		list1.stream().forEach(cons);
-		System.out.println();
-		System.out.print("size = " + list2.size() + ". elements = ");
-		list2.stream().forEach(cons);
-		
+		Stream.of(list1,list2).forEach(e -> System.out.println("size = " + e.size() + ". elements = " + e));
 	}
 
 	/**
@@ -73,15 +59,12 @@ public class AufgabeStreams_01_StreamsBilden {
 			}
 		}
 		MyRand myRand = new MyRand();
+		/*
 		for (int i = 1; i < 100; i++) {
 			System.out.println(myRand.nextInt());
 		}
-
-//		Loesung
-		System.out.println("\nLoesung zu A2:");
-		Supplier<Integer> randomIntFactory = ()-> myRand.nextInt();
-		Stream.generate(randomIntFactory).limit(100).forEach(System.out::println);
-
+		*/
+		Stream.generate(myRand::nextInt).limit(99).forEach(System.out::println);
 	}
 
 	/**
@@ -92,23 +75,19 @@ public class AufgabeStreams_01_StreamsBilden {
 	 *        Stream-Elemente begrenzen.
 	 */
 	public static void A3() {
-
+	    /*
 		for (int i = 100; i >= 1; i--) {
 			System.out.println(i);
 		}
-		
-//		Loesung
-		System.out.println("\nLoesung zu A3:");
-		UnaryOperator<Integer> countdown = (element) -> (element -1);
-		Stream.iterate(100, countdown).limit(100).forEach(System.out::println);
-
+	    */
+		Stream.iterate(100, Math::decrementExact).limit(100).forEach(System.out::println);
 	}
 
 	/**
 	 * Bitte ersetzen Sie den Code zwischen den Zeilen A und B mit einer Pipeline,
 	 * die dieselben Ausgaben liefert.
 	 * 
-	 * Verwenden Sie fï¿½r die Lï¿½sung die Methode `Stream.concat`.
+	 * Verwenden Sie für die Lösung die Methode `Stream.concat`.
 	 */
 	public static void A4() {
 
@@ -123,10 +102,12 @@ public class AufgabeStreams_01_StreamsBilden {
 			}
 		}
 		// B
-		
-//		Loesung
-		System.out.println("\nLoesung zu A4:");
-		Stream.concat(Arrays.stream(a1), Arrays.stream(a2)).forEach(System.out::println);
+		System.out.println("concat");
+		Stream.concat(Arrays.stream(a1),Arrays.stream(a2)).forEach(System.out::println);
+		System.out.println("map");
+		Stream.of(a1,a2).map(Arrays::stream).reduce(Stream.empty(),Stream::concat).forEach(System.out::println);
+		System.out.println("flatMap");
+		Stream.of(a1,a2).flatMap(Arrays::stream).forEach(System.out::println);
 	}
 
 	/**
@@ -135,16 +116,17 @@ public class AufgabeStreams_01_StreamsBilden {
 	 * Erzeugen Sie ein Stream mit `java.util.Collection.stream()`.
 	 */
 	public static void A5() {
-		Integer[] zahlenarray = { 2, 3, 4, 5, 6, 7, 8, 9, 7, 8, 5, 4, 54, 5, 7, 84, 54, 48, 48,
-				48, 4, 564, 65 };
-		List<Integer> zahlenliste = new ArrayList<>(Arrays.asList(zahlenarray));
-		
-		System.out.println("Loesung zu Aufgabe 5:");
-		Arrays.stream(zahlenarray).forEach(element -> System.out.print(element + " "));
-		System.out.println();
-		zahlenliste.stream().forEach(element -> System.out.print(element + " "));
-		
-		
-
+	  Stream<Integer> is1 = Arrays.stream(new Integer[] {1,2,3});
+	  System.out.println(is1.collect(Collectors.toList()));
+	  Stream<Integer> is2 = Arrays.asList(1,2,3).stream();
+	  System.out.println(is2.collect(Collectors.toList()));
+	  
+	  Integer limit = 100000;
+	  Integer i = Stream.iterate(1,Math::incrementExact).limit(limit).reduce(0,(a,b)->a+b);
+	  System.out.println(i);
+	  i = Stream.iterate(1,Math::incrementExact).limit(limit).reduce(1,(a,b)->a+b);
+      System.out.println(i);
+      i = Stream.iterate(1,Math::incrementExact).limit(limit).parallel().reduce(1,(a,b)->a+b);
+      System.out.println(i);
 	}
 }
