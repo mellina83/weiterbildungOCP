@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -38,18 +40,52 @@ public class AufgabeStreams_02_CountMinMax {
 		
 		//Loesung
 		System.out.println("Aufgabe 1, letztes Land in Locale[] :");
+		Comparator<Locale> compareMaxLocale = (loc1, loc2) -> {
+			return loc1.getDisplayCountry().compareTo(loc2.getDisplayCountry());
+		};
+		Comparator<String> compareString = String::compareTo;
+		Function<Locale,String> mapper = Locale::getDisplayCountry;
+		Consumer<Locale> displayCountry = loc -> System.out.println(loc.getDisplayCountry());
+		
+		Optional<Locale> optLoc = Stream.of(locales).max(compareMaxLocale);
+		optLoc.ifPresent(l->System.out.println(l.getDisplayCountry()));
+		
+
+		Stream.of(locales)						//Stream<Locale>
+				.map(Locale::getDisplayCountry)	//Stream<Locale> -> Stream<String>
+				.max(String::compareTo)
+				.ifPresent(displayCountry);
+				
+		
+		/*	Auch moeglich:
+		Stream.of(locales)			//Stream<Locale>
+				.map(mapper)	//Stream<Locale> -> Stream<String>
+				.sorted(compareString.reversed())		//127 Eintraege -> 127 Sortierte Eintraege
+				.limit(1)
+				.forEach(System.out::println);
+		*/	
+		
+		//Meine Loesung
 		Consumer<Locale> displayCountry = loc -> System.out.println(loc.getDisplayCountry());
 		Comparator<Locale> maxLocale = (l2, l1) -> l1.getDisplayCountry().compareTo(l2.getDisplayCountry());
 		Stream.of(locales).sorted(maxLocale).limit(1).forEach(displayCountry);
+		
 		
 		//Aufgabe02
 //		Stream.of(locales).forEach(loc -> System.out.println(loc.getLanguage()));
 		
 		//Loesung
 		System.out.println("\nAufgabe 2, alle Laender, die deutschsprachig sind :");
-		Predicate<Locale> displayCountryWithEntry = e -> !e.getDisplayCountry().isEmpty();
-		Predicate<Locale> germanLanguageCountries = l -> l.getLanguage() == "de";
-		Stream.of(locales).filter(germanLanguageCountries).filter(displayCountryWithEntry).forEach(displayCountry);
+		
+		long count = Stream.of(locales)
+							.map(loc-> loc.getLanguage())
+							.filter(str -> str.equalsIgnoreCase("de"))
+							.count();
+		System.out.println("Anzahl der Elemente mit 'de' : " + count);
+		
+		
+		//Meine Loesung ist falsch, weil nicht gezaehlt:
+		//Stream.of(locales).filter(germanLanguageCountries).filter(displayCountryWithEntry).forEach(displayCountry);
 		
 		aufgabe03();
 	}
@@ -95,9 +131,16 @@ public class AufgabeStreams_02_CountMinMax {
 		
 		//Loesung
 		System.out.println("\nAufgabe 3 :");
-		Predicate<Locale> countriesWithLetterT = p1 -> p1.getDisplayCountry().toString().contains("t");
+		Predicate<Locale> countriesWithLetterT = p1 -> p1.getDisplayCountry().contains("t");
 		Comparator<Locale> minLanguage = (l1, l2) -> l1.getDisplayLanguage().compareTo(l2.getDisplayLanguage());
 		Consumer<Locale> displayCountryAndLanguage = loc -> System.out.println(loc.getDisplayCountry() + ": " + loc.getDisplayLanguage());
-		Stream.of(locales).filter(countriesWithLetterT).sorted(minLanguage).limit(1).forEach(displayCountryAndLanguage);
+		
+		Stream.of(locales)
+				.filter(countriesWithLetterT)
+				.min(minLanguage)
+				.ifPresent(displayCountryAndLanguage);
+		
+		//Meine Loesung:
+		//Stream.of(locales).filter(countriesWithLetterT).sorted(minLanguage).limit(1).forEach(displayCountryAndLanguage);
 	}
 }
