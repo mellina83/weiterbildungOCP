@@ -40,36 +40,33 @@ public class AufgabeStreams_02_CountMinMax {
 		
 		//Loesung
 		System.out.println("Aufgabe 1, letztes Land in Locale[] :");
-		Comparator<Locale> compareMaxLocale = (loc1, loc2) -> {
-			return loc1.getDisplayCountry().compareTo(loc2.getDisplayCountry());
-		};
-		Comparator<String> compareString = String::compareTo;
 		Function<Locale,String> mapper = Locale::getDisplayCountry;
-		Consumer<Locale> displayCountry = loc -> System.out.println(loc.getDisplayCountry());
 		
+		Stream.of(locales)		//Stream<Locale>
+				.map(mapper)	//Stream<Locale> -> Stream<String>
+				.filter(str -> !str.isEmpty())
+				.max(String::compareTo)
+				.ifPresent(System.out::println);;
+		
+		/* Das gleiche, nur mit expliziter Uebergabe an Optional:
 		Optional<Locale> optLoc = Stream.of(locales).max(compareMaxLocale);
 		optLoc.ifPresent(l->System.out.println(l.getDisplayCountry()));
-		
-
-		Stream.of(locales)						//Stream<Locale>
-				.map(Locale::getDisplayCountry)	//Stream<Locale> -> Stream<String>
-				.max(String::compareTo)
-				.ifPresent(displayCountry);
+		*/		
 				
-		
-		/*	Auch moeglich:
-		Stream.of(locales)			//Stream<Locale>
+		/*Eine andere Moeglichkeit:
+		Comparator<String> compareString = String::compareTo;
+		Stream.of(locales)		//Stream<Locale>
 				.map(mapper)	//Stream<Locale> -> Stream<String>
-				.sorted(compareString.reversed())		//127 Eintraege -> 127 Sortierte Eintraege
+				.sorted(compareString.reversed())	//127 Eintraege -> 127 Sortierte Eintraege
 				.limit(1)
 				.forEach(System.out::println);
 		*/	
 		
-		//Meine Loesung
+		/*Meine Loesung
 		Consumer<Locale> displayCountry = loc -> System.out.println(loc.getDisplayCountry());
 		Comparator<Locale> maxLocale = (l2, l1) -> l1.getDisplayCountry().compareTo(l2.getDisplayCountry());
 		Stream.of(locales).sorted(maxLocale).limit(1).forEach(displayCountry);
-		
+		*/
 		
 		//Aufgabe02
 //		Stream.of(locales).forEach(loc -> System.out.println(loc.getLanguage()));
@@ -139,6 +136,13 @@ public class AufgabeStreams_02_CountMinMax {
 				.filter(countriesWithLetterT)
 				.min(minLanguage)
 				.ifPresent(displayCountryAndLanguage);
+		
+		/* Das gleiche, nur mit vorheriger Uebergabe an Optional:
+		 * Optional<Locale> optLoc = Stream.of(locales)
+		 *								.filter(filter)
+		 *								.min(cmp);		//Stream closed -> Optional<Locale>	
+		 * optLoc.ifPresent(action);
+		 */
 		
 		//Meine Loesung:
 		//Stream.of(locales).filter(countriesWithLetterT).sorted(minLanguage).limit(1).forEach(displayCountryAndLanguage);
