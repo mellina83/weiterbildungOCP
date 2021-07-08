@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class Aufgabe03_Intermediate {
+public class Aufgabe_Intermediate {
 	public static void main(String[] args) {
 		aufgabe01();
 		aufgabe02();

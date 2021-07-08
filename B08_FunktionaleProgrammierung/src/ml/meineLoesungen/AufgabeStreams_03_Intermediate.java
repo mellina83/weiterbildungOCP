@@ -49,6 +49,9 @@ public class AufgabeStreams_03_Intermediate {
 		
 		kreisliste.stream().distinct().filter(ungeraderRadius).filter(rangeRadius).limit(10).forEach(System.out::println);
 		
+		//Eleganter:
+		//Random rand = new Random();
+		//Stream.generate(new Kreis(rand.nextInt(500_000) + 1));
 		
 	
 
@@ -66,6 +69,8 @@ public class AufgabeStreams_03_Intermediate {
 		System.out.println("Loesung Aufgabe 3:");
 		Random rd = new Random();
 		rd.ints(-20, 21).limit(30).peek(s -> System.out.print(+ s + " ")).average().ifPresent(s -> System.out.println("\nDurchschnitt: " + s));
+		
+		//oder Stream.generate und darin rand.nextint (41)-20
 	}
 
 	private static void aufgabe02() {
