@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 
-public class AufgabeStreams_03_Intermediate {
+public class AufgabeStreams_Intermediate {
 	public static void main(String[] args) {
 //		aufgabe01();
 //		aufgabe02();
