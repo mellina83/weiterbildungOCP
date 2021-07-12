@@ -24,7 +24,7 @@ import java.util.concurrent.ConcurrentLinkedDeque;
  * 
  * collect() sammelt die Elemente des Streams
  * 
- * Utility Klasse für den Collector ist Collectors
+ * Utility Klasse fï¿½r den Collector ist Collectors
  *
  * @collect01 Performs a mutable reduction operation on the elements of this
  *            stream using a Collector. A Collector encapsulates the functions
