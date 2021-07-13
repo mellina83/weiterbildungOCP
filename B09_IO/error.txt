@@ -1,0 +1,2 @@
+Exception in thread "main" java.lang.NullPointerException
+	at io02.Demo06StandardStreams.main(Demo06StandardStreams.java:17)

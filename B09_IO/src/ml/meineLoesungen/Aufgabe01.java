@@ -41,6 +41,7 @@ public class Aufgabe01 {
 			
 			if (!read.toLowerCase().contains("ende")) {
 				texte.add(read);
+				
 			}
 		}
 
@@ -53,23 +54,29 @@ public class Aufgabe01 {
 		
 		for (int i = 0; i < texte.size(); i++) {
 			writer.write(texte.get(i) + ls);
+			writer.flush();
 		}
+		//Alternative: Mit Consumer und forEach s. ML
 
 		System.out.println("Speichern erfolgreich.");
 		writer.close();
 		
 		//Reader erstellen und Ausgabe des Texts aus der Datei auf der Konsole
 		Reader reader = new FileReader(file);
-		BufferedReader bufReader = new BufferedReader(reader);
 		System.out.println("\nIn der Datei output.txt steht:");
 		
-		List<String> texte1 = new ArrayList<>();
-		
-		while (bufReader.ready()) {
-			texte1.add(bufReader.readLine());
+		List<Integer> input = new ArrayList<>();
+		while(reader.ready()) {
+			input.add(reader.read()); //Liest alles, auch cr und lf
 		}
-		bufReader.close();
+		input.stream().map(i -> (char) i.intValue()).forEach(System.out::print); //Stream<Integer> -> Stream<Character>
 		
-		texte1.stream().forEach(System.out::println);
+		/*
+		while (bufReader.ready()) {
+			System.out.println(bufReader.readLine()); // readLine ist ohne Zeilenumbrueche
+		}
+		*/
+		
+		reader.close();
 	}
 }
