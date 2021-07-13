@@ -15,7 +15,7 @@ public class Teilnehmer implements Serializable {
 	 * Teilnehmer Version 1
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	private String name;
 	private String vorname;
 //	private int alter;
