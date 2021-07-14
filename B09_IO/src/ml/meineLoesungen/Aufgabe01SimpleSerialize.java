@@ -77,10 +77,9 @@ public class Aufgabe01SimpleSerialize {
 		serialisieren(file2, tier2);
 		deSerialisieren(file1);
 		deSerialisieren(file2);
-
 	}
 	
-	private static void serialisieren(String file, Object obj) throws IOException {
+	private static void serialisieren(String file, Serializable obj) throws IOException {
 		
 		OutputStream os = new FileOutputStream(file);
 		ObjectOutputStream oos = new ObjectOutputStream(os);
@@ -99,7 +98,6 @@ public class Aufgabe01SimpleSerialize {
 		System.out.println("Nach dem DeSerialisieren");
 		System.out.println(tier3);
 		ois.close();
-		
 	}
 
 

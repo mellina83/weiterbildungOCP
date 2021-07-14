@@ -39,10 +39,23 @@ public class Aufgabe02Array {
 		Reader reader = new FileReader(file);
 		BufferedReader bufReader = new BufferedReader(reader);
 		
-		int count = 0;
+		int count = (int) bufReader.lines().count();
+		
+		/*
+		 int count = 0;
+		 
+		 Meine Loesung:
+			while (bufReader.ready() ) {
+			count++;
+			bufReader.readLine();
+		}
+		
+		Dozent:
 		while (bufReader.readLine() != null) {
 			count++;
 		}
+		*/
+		
 		System.out.println("Anzahl Zeilen in der Datei: " + count);
 		bufReader.close();
 		
@@ -54,7 +67,7 @@ public class Aufgabe02Array {
 		//Schreiben der Datei in ein Array
 		for (int i = 0; i < array.length; i++) {
 			String str = bufReader2.readLine();
-			array[i] = Integer.valueOf(str); //oder parse
+			array[i] = Integer.parseInt(str); // ergibt primitiven Datentyp
 		}
 	
 		bufReader2.close();
@@ -63,8 +76,6 @@ public class Aufgabe02Array {
 		for (int element : array) {
 			System.out.println(element);
 		}
-		
-
 	}
 
 	/**
