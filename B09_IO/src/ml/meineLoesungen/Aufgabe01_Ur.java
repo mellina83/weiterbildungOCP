@@ -23,7 +23,7 @@ import java.util.Scanner;
  * sie in der Konsole aus
  *
  */
-public class Aufgabe01 {
+public class Aufgabe01_Ur {
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		
@@ -41,7 +41,6 @@ public class Aufgabe01 {
 			
 			if (!read.toLowerCase().contains("ende")) {
 				texte.add(read);
-				
 			}
 		}
 
@@ -54,29 +53,23 @@ public class Aufgabe01 {
 		
 		for (int i = 0; i < texte.size(); i++) {
 			writer.write(texte.get(i) + ls);
-			writer.flush(); // oder BufferedWriter
 		}
-		//Alternative: Mit Consumer und forEach s. ML
 
 		System.out.println("Speichern erfolgreich.");
 		writer.close();
 		
 		//Reader erstellen und Ausgabe des Texts aus der Datei auf der Konsole
 		Reader reader = new FileReader(file);
+		BufferedReader bufReader = new BufferedReader(reader);
 		System.out.println("\nIn der Datei output.txt steht:");
 		
-		List<Integer> input = new ArrayList<>();
-		while(reader.ready()) {
-			input.add(reader.read()); //Liest alles, auch cr und lf
-		}
-		input.stream().map(i -> (char) i.intValue()).forEach(System.out::print); //Stream<Integer> -> Stream<Character>
+		List<String> texte1 = new ArrayList<>();
 		
-		/*
 		while (bufReader.ready()) {
-			System.out.println(bufReader.readLine()); // readLine ist ohne Zeilenumbrueche
+			texte1.add(bufReader.readLine());
 		}
-		*/
+		bufReader.close();
 		
-		reader.close();
+		texte1.stream().forEach(System.out::println);
 	}
 }
