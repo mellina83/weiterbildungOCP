@@ -1,5 +1,7 @@
 package ml.meineLoesungen;
 
+//Beim Deserialisieren habe ich die transienten Attribute vergessen, sonst alles ok.
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -83,7 +85,8 @@ public class Aufgabe02ManualSerializable {
 
 	private static void object2File(String file, Getriebe g01) throws FileNotFoundException, IOException {
 		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-		oos.defaultWriteObject();
+		oos.defaultWriteObject(); // nur wenn Getriebe erweitert, dann in Instanzmethode
+		oos.writeObject(g01);
 		oos.writeInt(g01.klein.zaehne);
 		oos.writeInt(g01.mittel.zaehne);
 		oos.writeInt(g01.gross.zaehne);
