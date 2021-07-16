@@ -1,5 +1,8 @@
 package aufgaben.meineLoesungen;
 
+//Loesung s. ML von Dozent (ich hab nicht mit Workspace gearbeitet,
+//und letzte Aufgabe nicht richtig geloest)
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 

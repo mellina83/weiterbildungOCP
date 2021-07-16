@@ -32,7 +32,7 @@ public class Demo03Files_API {
 //		files_move_dir();
 		
 		/**
-		 * Zum Lï¿½schen von Dateien und Verzeichnissen
+		 * Zum Löschen von Dateien und Verzeichnissen
 		 */
 //		files_delete();
 		
@@ -43,9 +43,9 @@ public class Demo03Files_API {
 //		files_read_Dos_Attributes();
 		
 		/**
-		 * Abkï¿½rzungen zu den Attributen
+		 * Abkürzungen zu den Attributen
 		 */
-//		files_shortcuts_readAttributes();
+		files_shortcuts_readAttributes();
 	}
 
 	private static void files_shortcuts_readAttributes() {

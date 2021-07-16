@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 public class Demo02Path_API {
 
 	public static void main(String[] args) {
-//		pathEquals(); //no-exam
-//		pathNormalize();
+//		pathEquals();
+		pathNormalize();
 
 //		pathGetRoot("C:\\WINDOWS\\Installer");// Absolute Pfadangabe
 //		pathGetRoot("10_NIO/testfiles");// Relative Pfadangabe
@@ -27,13 +27,13 @@ public class Demo02Path_API {
 		
 //		path_subpath();
 		
-//		path_startsWith_endsWith(); //no-exam
+//		path_startsWith_endsWith();
 		
 //		path_resolve();
 		
 //		path_relativize();
 		
-//		path_toAbsolutePath(); //no-exam
+//		path_toAbsolutePath();
 		
 //		fileWithPaths();
 	}
@@ -155,7 +155,7 @@ public class Demo02Path_API {
 		System.out.println("dirAndFile : " + dirAndFile.toAbsolutePath());
 		
 		/**
-		 * Eventueller Fallstrick in der Prï¿½fung, aber eher unwahrscheinlich. Achten Sie
+		 * Eventueller Fallstrick in der Prüfung, aber eher unwahrscheinlich. Achten Sie
 		 * auf Absolute Pfadangaben!!!
 		 */
 		Path p1 = Paths.get("C:\\Hallo");
@@ -260,7 +260,7 @@ public class Demo02Path_API {
 		System.out.println("\n--------------\n pathFileName\n--------------\n");
 		Path p1 = Paths.get(path);
 
-		Path fileName = p1.getFileName(); // Geht fï¿½r Dateien wie auch Verzeichnisse
+		Path fileName = p1.getFileName(); // Geht für Dateien wie auch Verzeichnisse
 		System.out.println("getFileName: " + fileName);
 	}
 
@@ -330,7 +330,6 @@ public class Demo02Path_API {
 		 */
 		System.out.println("3. p1 == p2 : " + (p1 == p2));// false
 		System.out.println("4. p1.equals(p2) : " + (p1.equals(p2)));// false
-		System.out.println("Mit Normalize vorher: 4. p1.equals(p2) : " + (p1.normalize().equals(p2.normalize())));// true
 		System.out.println("------------");
 	}
 

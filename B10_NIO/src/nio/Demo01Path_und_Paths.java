@@ -4,7 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * @Path ist das Interface, womit wir uns einen Pfad bilden kï¿½nnen. Wird als
+ * @Path ist das Interface, womit wir uns einen Pfad bilden können. Wird als
  *       Referenzdatentyp verwendet
  * 
  * @Paths This class consists exclusively of static methods that return a Path
@@ -39,7 +39,7 @@ public class Demo01Path_und_Paths {
 		/**
 		 * Path ist ein Interface und beschreibt einen Pfad.
 		 * 
-		 * Zum instanzieren benï¿½tigen wir die UtilityKlasse Paths.
+		 * Zum instanzieren benötigen wir die UtilityKlasse Paths.
 		 * 
 		 * Die Paths Klasse hat eine get methode, welche wir verwenden werden
 		 */
@@ -75,7 +75,7 @@ public class Demo01Path_und_Paths {
 		System.out.println("2: " + p01);// W: e:\a\b\c U: /a/b/c
 		
 		p01 = Paths.get("a\\b", "c");
-		System.out.println("3: " + p01);// W: a\b\c U: a\b/c - Unschï¿½ne Pfad in *nix
+		System.out.println("3: " + p01);// W: a\b\c U: a\b/c - Unschöne Pfad in *nix
 	}
 
 }
