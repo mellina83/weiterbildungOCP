@@ -9,16 +9,16 @@ import java.util.Locale;
 public class Demo06DateTimeFormater {
 	public static void main(String[] args) {
 //		demoFormater();
-//		demoBasicFormatter();
+		demoBasicFormatter();
 		
-		demoDateTimeFormatterPattern();
+//		demoDateTimeFormatterPattern();
 	}
 	
 	private static void demoDateTimeFormatterPattern() {
 		LocalDateTime ldt = LocalDateTime.now();
 		
 		/**
-		 * Achtung: Die textuellen Teile sind in Hochkomma einzuschließen
+		 * Achtung: Die textuellen Teile sind in Hochkomma einzuschlieï¿½en
 		 */
 		String datePattern = "'Es ist 'EEEE' der 'dd'. Tag im 'MMMM' im Jahr 'yyyy'.'";
 		String timePattern = "'Es ist 'H' Uhr 'm' und 's' sekunden.'";

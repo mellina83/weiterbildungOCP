@@ -6,9 +6,9 @@ import java.time.ZonedDateTime;
 
 public class Demo07_DaylightSaving {
 	public static void main(String[] args) {
-//		dayLightSaving();
+		dayLightSaving();
 		
-		durationBetween();
+//		durationBetween();
 	}
 
 	private static void durationBetween() {
@@ -38,10 +38,10 @@ public class Demo07_DaylightSaving {
 
 	private static void dayLightSaving() {
 		/**
-		 * Bekannt (auch in der Prüfung wird es bekannt gegeben) ist ein Datum für die
+		 * Bekannt (auch in der Prï¿½fung wird es bekannt gegeben) ist ein Datum fï¿½r die
 		 * Zeitumstellung in den USA (daylight saving):
 		 * 
-		 * 2015, am 8. März, um 2:00 Uhr ( um diese Zeit wurde die Uhr auf 3:00
+		 * 2015, am 8. Mï¿½rz, um 2:00 Uhr ( um diese Zeit wurde die Uhr auf 3:00
 		 * umgestellt) Zeitzone: US/Central
 		 */
 		int year = 2015;
