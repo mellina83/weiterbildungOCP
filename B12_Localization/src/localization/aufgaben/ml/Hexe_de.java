@@ -1,0 +1,21 @@
+package localization.aufgaben.ml;
+
+import java.util.ListResourceBundle;
+
+public class Hexe_de extends ListResourceBundle {
+
+	@Override
+	protected Object[][] getContents() {
+		return new Object[][] { 
+				{ "clockRow", " Klasse: Morgens früh um " }, 
+				{ "6", "kommt die kleine Hex." },
+				{ "7", "schabt sie gelbe Rüben." }, 
+				{ "8", "wird Kaffe gemacht." }, 
+				{ "9", "geht sie in die Scheun." },
+				{ "10", "hackt sie Holz und Spän'." }, 
+				{ "11", "Feuert an um 11,\nkocht sie bis um 12." },
+				{ "12", "Fröschebein und Krebs und Fisch.\nHurtig Kinder kommt zu Tisch" },
+				{ "defaultText", "Kleene Hexe ist jefallen inne Ofen, nun müssen wir ne neue koofen" } };
+	}
+
+}
